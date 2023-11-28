@@ -1,0 +1,13 @@
+<div [className]="'getCollection'" >
+    <button>הבא</button>
+    <input  [(ngModel)]="collectionNumber">
+    <h5>שם האוסף</h5>
+    <div [className]="'collectionName'" >
+    
+        <div *ngFor="let coll of collections" >
+            <p  *ngIf="coll.itemId === collectionNumber" >
+                {{ coll.title }}
+            </p>
+        </div>
+    </div>
+</div>

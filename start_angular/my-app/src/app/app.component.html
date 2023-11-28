@@ -1,0 +1,19 @@
+<router-outlet></router-outlet>
+<h1 [className] = "'cool'" [innerHtml]="title"> </h1>
+<img [src]="imgSrc"> <br>
+<input #animal [(ngModel)]="favoriteAnimal"> <br>
+{{favoriteAnimal}} <br>
+<button (click)="handleClick(animal.value)">press on this</button>
+<input type="text" [value]="pokemonName" (input)="handleChange($event)" />
+<p> {{ pokemonName }}</p> 
+<div *ngIf="!pokemonName" >
+    no value selected
+</div>
+
+<div *ngFor="let poke of pokemons; let i = index" >
+    {{i}}
+    {{poke.name}}
+   
+</div>
+
+<app-compo></app-compo>

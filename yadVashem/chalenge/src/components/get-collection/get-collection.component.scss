@@ -1,0 +1,13 @@
+.getCollection{
+    padding-left: 15rem;
+    .collectionName {
+        background-color: gray;
+        border: 1px solid gray;
+        height: 2rem;
+        width: 20rem;
+        margin-right: 15rem;
+        p {
+            margin: auto;
+        }
+    }
+}
