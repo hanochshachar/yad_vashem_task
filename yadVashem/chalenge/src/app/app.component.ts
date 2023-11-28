@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GetCollectionComponent } from '../components/get-collection/get-collection.component';
+import { AddImagesComponent } from '../components/add-images/add-images.component';
 
 @Component({
   selector: 'app-root',

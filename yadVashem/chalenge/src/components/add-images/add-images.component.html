@@ -1,0 +1,33 @@
+<div>
+
+    <div [className]="'second-container'">
+        <div *ngIf="next == true">
+            <button (click)="handleAddFirstImg()">הוסף תמונה לאוסף</button>
+        </div>
+         <!-- *ngFor="let num of numbers let i = index" -->
+        <div *ngFor="let num of numbers let i = index" >
+            <img (click)="handleDelImg()" [src]="imgGarbage" alt="">
+            <h5>מספר תמונה</h5>
+            <div>
+                <p>{{imgNumber}}</p>
+            </div>
+            <h5>נתיב שמירת תמונה</h5>
+            <div>
+                <p>{{pathImg }}</p>
+                <p>{{num}}</p>
+            </div>
+            <div *ngIf="showImagePath" >
+    
+                <h5>נתיב שמירת גב תמונה</h5>
+                
+                    <p>{{pathImg}}</p>
+                    <p>__{{num}}</p>
+                
+            </div>
+    
+            <label for="back"> גב תמונה</label>
+            <input type="checkbox" id="backCheckbox" name="back" [(ngModel)]="isCheckboxChecked">
+        </div>
+    </div>
+    <button *ngIf="addImgBool == true" (click)="handleAddImg()" >צרף תמונה נוספת</button>
+</div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AddImagesComponent } from '../add-images/add-images.component';
 
 interface Collection {
   collectionSymbolization: string,
@@ -11,13 +12,14 @@ interface Collection {
 @Component({
   selector: 'app-get-collection',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, AddImagesComponent],
   templateUrl: './get-collection.component.html',
   styleUrl: './get-collection.component.scss'
 })
 export class GetCollectionComponent {
 
   collectionNumber: string = "";
+  next: boolean = false;
   
    collections: Collection[] = [{
     collectionSymbolization: "4567",
@@ -34,5 +36,20 @@ export class GetCollectionComponent {
   }
 
   ]
+
+  handleNextClick() {
+    
+    const relevantItem = this.collections.find((item) => item.collectionSymbolization == this.collectionNumber);
+    if (relevantItem !== undefined) {
+      this.next = true;
+      console.log('kkk');
+      console.log(this.next);
+      
+      
+    } else {
+      alert("נא לבחור אוסף!!");
+    }
+  }
+  
 
 }
