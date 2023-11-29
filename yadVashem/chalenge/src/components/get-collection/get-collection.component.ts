@@ -19,42 +19,40 @@ interface Collection {
 })
 export class GetCollectionComponent {
 
-   collectionNumber: string = "";
+  collectionNumber: string = "";
   next: boolean = false;
-  
-   collections: Collection[] = [{
-    collectionSymbolization: "4567",
-    title: "3 phtographs of Yehuda Hershkowitz and his family.",
-    itemId: "9861229"
-  }, {
-    collectionSymbolization: "4568",
-    title: "3 phtographs of Yehuda mushon and his family.",
-    itemId: "9861213"
-  }, {
-    collectionSymbolization: "4569",
-    title: "3 phtographs of Yehuda rona and his family.",
-    itemId: "9861299"
-  }
-  ]
+  collection: Collection = {
+    collectionSymbolization: "",
+    title: '',
+    itemId: ''
+  };
 
-  constructor(private http: HttpClient) {}
 
-  onInputChange(){
+
+  constructor(private http: HttpClient) { }
+
+  onInputChange() {
     const apiUrl = 'https://localhost:7020/api/Collection/getCollection/';
 
-    const data =  this.http.get<any>(`${apiUrl}${{collNum: this.collectionNumber}}`)
-    return 
+    this.http.get<any>(`${apiUrl}${this.collectionNumber}`).subscribe(data => {
+      this.collection = data
+      console.log(data);
+
+    })
+    
+
   }
 
   handleNextClick() {
+
+    console.log(this.collection);
     
-    const relevantItem = this.collections.find((item) => item.collectionSymbolization == this.collectionNumber);
-    if (relevantItem !== undefined) {
-      this.next = true;  
+    if (this.collection !== null) {
+      this.next = true;
     } else {
-      alert("נא לבחור אוסף!!");
+      alert("נא להזין ערך תקין!!");
     }
   }
-  
+
 
 }

@@ -1,12 +1,12 @@
 <div [className]="'getCollection'" >
-    <button (click)="handleNextClick()">הבא</button>
+     <button (click)="handleNextClick()">הבא</button>
     <input [disabled]="next"  [(ngModel)]="collectionNumber" (input)="onInputChange()">
     <h5>שם האוסף</h5>
     <div [className]="'collectionName'" >
     
-        <div *ngFor="let coll of collections" >
-            <p  *ngIf="coll.collectionSymbolization === collectionNumber" >
-                {{ coll.title }}
+        <div  >
+            <p   >
+                {{ collection.title }}
             </p>
         </div>
     </div>
