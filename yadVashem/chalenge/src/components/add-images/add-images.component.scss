@@ -1,8 +1,21 @@
 .second-container{
     padding-left: 14rem;
+    .images{
+        border: 1px solid grey;
+        background-color: beige;
+        width: fit-content;
+        min-width: 20rem;
+        margin-top: 2rem;
+        margin-left: -17rem;
+        margin-bottom: 2rem;
+
+        .images-1{
+            margin-left: 15rem;
+        }
+    }
     img {
         position: fixed;
-        margin-left: -12rem;
+        
         height: 2rem;
         width: 2rem;
     }

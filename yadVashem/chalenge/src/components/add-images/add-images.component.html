@@ -4,30 +4,39 @@
         <div *ngIf="next == true">
             <button (click)="handleAddFirstImg()">הוסף תמונה לאוסף</button>
         </div>
-         <!-- *ngFor="let num of numbers let i = index" -->
-        <div *ngFor="let num of numbers let i = index" >
+        <!-- *ngFor="let num of numbers let i = index" -->
+        <div [className]="'images'" *ngFor="let num of numbers let i = index">
             <img (click)="handleDelImg()" [src]="imgGarbage" alt="">
-            <h5>מספר תמונה</h5>
-            <div>
-                <p>{{imgNumber}}</p>
-            </div>
-            <h5>נתיב שמירת תמונה</h5>
-            <div>
-                <p>{{pathImg }}</p>
-                <p>{{num}}</p>
-            </div>
-            <div *ngIf="showImagePath" >
+            <div [className]="'images-1'">
+
+                <h5>מספר תמונה</h5>
+                <div>
+                    <p>{{imgNumber}}</p>
+                </div>
+                <h5>נתיב שמירת תמונה</h5>
+                <div>
+                    <p>{{pathImg }}</p>
+                    <p>{{num}}</p>
+                </div>
+                <div *ngFor="let item of addBackChecker" >
     
-                <h5>נתיב שמירת גב תמונה</h5>
-                
-                    <p>{{pathImg}}</p>
-                    <p>__{{num}}</p>
-                
+                    <div *ngIf="item.isChecked == true && item.value === num">
+        
+                        <h5>נתיב שמירת גב תמונה</h5>
+            
+                        <p>{{pathImg}}</p>
+                        <p>__{{num}}</p>
+            
+                    </div>
+                </div>
+                <div>
+        
+                    <label for="back"> גב תמונה</label>
+                    <input type="checkbox" id="backCheckbox" name="back" [(ngModel)]="isCheckboxChecked" (ngModelChange)="handleAddBack(num)">
+                </div>
             </div>
-    
-            <label for="back"> גב תמונה</label>
-            <input type="checkbox" id="backCheckbox" name="back" [(ngModel)]="isCheckboxChecked">
         </div>
+        
     </div>
-    <button *ngIf="addImgBool == true" (click)="handleAddImg()" >צרף תמונה נוספת</button>
+    <button *ngIf="addImgBool == true" (click)="handleAddImg()">צרף תמונה נוספת</button>
 </div>
