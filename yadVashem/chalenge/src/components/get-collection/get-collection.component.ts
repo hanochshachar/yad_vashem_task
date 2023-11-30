@@ -27,7 +27,21 @@ export class GetCollectionComponent {
     itemId: ''
   };
 
+  //  [{
+  //   collectionSymbolization: "4567",
+  //   title: "3 phtographs of Yehuda Hershkowitz and his family.",
+  //   itemId: "9861229"
+  // }, {
+  //   collectionSymbolization: "4568",
+  //   title: "3 phtographs of Yehuda mushon and his family.",
+  //   itemId: "9861213"
+  // }, {
+  //   collectionSymbolization: "4569",
+  //   title: "3 phtographs of Yehuda rona and his family.",
+  //   itemId: "9861299"
+  // }
 
+  // ]
 
   constructor(private http: HttpClient) { }
 
